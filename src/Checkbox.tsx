@@ -1,36 +1,38 @@
-import React, { FC } from 'react'
+import React, { FC, ChangeEvent } from 'react'
+import cx from '@architecturex/utils.cx'
 
-interface CheckboxProps {
+type Props = {
   checked: boolean
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void
   label?: string
+  helpText?: string
+  disabled?: boolean
 }
 
-const Checkbox: FC<CheckboxProps> = ({ checked, onChange, label }) => {
+const Checkbox: FC<Props> = ({ checked, onChange, label, helpText, disabled = false }) => {
+  const classes = {
+    label: 'text-gray-900 dark:text-gray-300',
+    disabled: 'text-gray-400 dark:text-gray-500 cursor-not-allowed'
+  }
+
   return (
-    <div className="flex items-center">
-      <label className="inline-flex items-center cursor-pointer">
-        <input type="checkbox" className="hidden" checked={checked} onChange={onChange} />
-        <span
-          className={`w-6 h-6 flex items-center justify-center rounded transition duration-200 ${
-            checked ? 'bg-blue-600' : 'bg-gray-200 border-2 border-gray-400'
-          }`}
-        >
-          {checked && (
-            <svg
-              className="fill-current text-white w-4 h-4" // Adjusted size of the checkmark
-              viewBox="0 0 20 20"
-              style={{
-                marginLeft: '2px',
-                marginTop: '-1px'
-              }}
-            >
-              <path d="M7.629 14.957l-3.629-3.457 1.8-1.8 1.829 1.743 4.371-4.743 1.8 1.8-6.171 6.457z" />
-            </svg>
-          )}
-        </span>
+    <div className="flex items-center mb-4">
+      <input
+        type="checkbox"
+        value=""
+        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+        checked={checked}
+        onChange={onChange}
+      />
+      <label
+        className={cx.join('ms-2 text-sm font-medium', disabled ? classes.disabled : classes.label)}
+      >
+        {label}
       </label>
-      {label && <span className="ml-2 text-sm">{label}</span>}
+
+      {helpText && (
+        <p className="text-xs font-normal text-gray-500 dark:text-gray-300">{helpText}</p>
+      )}
     </div>
   )
 }
