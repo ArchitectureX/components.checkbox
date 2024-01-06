@@ -28,8 +28,9 @@ const Checkbox: FC<Props> = ({ checked, onChange, label, helpText, disabled = fa
         <div className="ms-2 text-sm" style={{ marginLeft: '10px' }}>
           <div
             className={cx.join(
-              'ms-2 text-sm font-medium text-left',
-              disabled ? classes.disabled : classes.label
+              'ms-2 text-sm text-left',
+              disabled ? classes.disabled : classes.label,
+              helpText ? 'font-medium' : ''
             )}
           >
             {label}
