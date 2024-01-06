@@ -16,7 +16,7 @@ const Checkbox: FC<Props> = ({ checked, onChange, label, helpText, disabled = fa
   }
 
   return (
-    <div className="flex">
+    <div className="flex" style={{ margin: '0 auto', width: '90%' }}>
       <div className="flex items-center h-5">
         <input
           type="checkbox"
@@ -29,12 +29,14 @@ const Checkbox: FC<Props> = ({ checked, onChange, label, helpText, disabled = fa
       <div className="ms-2 text-sm">
         <label
           className={cx.join(
-            'ms-2 text-sm font-medium',
+            'ms-2 text-sm font-medium text-left',
             disabled ? classes.disabled : classes.label
           )}
+          style={{ marginLeft: '4px' }}
         >
           {label}
         </label>
+
         {helpText && (
           <p className="text-xs font-normal text-gray-500 dark:text-gray-300">{helpText}</p>
         )}
