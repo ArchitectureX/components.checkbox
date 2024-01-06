@@ -26,16 +26,15 @@ const Checkbox: FC<Props> = ({ checked, onChange, label, helpText, disabled = fa
           onChange={onChange}
         />{' '}
       </div>
-      <div className="ms-2 text-sm" style={{ marginLeft: '5px' }}>
-        <label
+      <div className="ms-2 text-sm" style={{ marginLeft: '10px' }}>
+        <div
           className={cx.join(
             'ms-2 text-sm font-medium text-left',
             disabled ? classes.disabled : classes.label
           )}
-          style={{ marginLeft: '4px' }}
         >
           {label}
-        </label>
+        </div>
 
         {helpText && (
           <div className="text-xs font-normal text-gray-500 dark:text-gray-300">{helpText}</div>
