@@ -37,7 +37,12 @@ const Checkbox: FC<Props> = ({ checked, onChange, label, helpText, disabled = fa
           </div>
 
           {helpText && (
-            <div className="text-xs font-normal text-gray-500 dark:text-gray-300">{helpText}</div>
+            <div
+              className="text-xs font-normal text-gray-500 dark:text-gray-300"
+              style={{ marginLeft: '-10px' }}
+            >
+              {helpText}
+            </div>
           )}
         </div>
       </label>
