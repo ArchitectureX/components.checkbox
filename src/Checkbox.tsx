@@ -1,3 +1,4 @@
+export default () => `
 import React, { FC, ChangeEvent } from 'react'
 import cx from '@architecturex/utils.cx'
 
@@ -51,3 +52,4 @@ const Checkbox: FC<Props> = ({ checked, onChange, label, helpText, disabled = fa
 }
 
 export default Checkbox
+`
