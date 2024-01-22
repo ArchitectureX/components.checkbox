@@ -1,5 +1,4 @@
-export default () => `
-import React, { FC, ChangeEvent } from 'react'
+export default () => `import React, { FC, ChangeEvent } from 'react'
 import cx from '@architecturex/utils.cx'
 
 type Props = {
